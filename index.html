@@ -1,584 +1,1139 @@
-<!DOCTYPE html>
-<html lang="es">
+<!DOCTYPE html><html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>DANI STORE | Electrodomésticos a crédito</title>
+<meta name="description" content="Compra electrodomésticos para tu hogar con 0% de inicial.">
 
-    <title>ElectroHogar | Electrodomésticos a tu alcance</title>
+<link rel="stylesheet" href="./css/styles.css">
 
-    <meta name="description"
-        content="Compra electrodomésticos de contado o mediante cómodas cuotas.">
+</head><body><header class="site-header">
+    <div class="container header-inner">    <a href="index.html" class="logo">
+        <span class="logo-mark">DS</span>
+        <span>DANI STORE</span>
+    </a>
 
-    <link rel="stylesheet" href="css/styles.css">
-</head>
+    <nav class="main-nav" id="mainMenu">
+        <a href="#inicio">Inicio</a>
+        <a href="#productos">Productos</a>
+        <a href="#categorias">Categorías</a>
+        <a href="#como-funciona">Cómo funciona</a>
+    </nav>
 
-<body>
+    <div class="header-actions">
+        <a href="login.html" class="btn btn-outline">Iniciar sesión</a>
+        <a href="registro.html" class="btn btn-primary">Crear cuenta</a>
 
-    <!-- ================= HEADER ================= -->
+        <button class="cart-button" id="cartButton" type="button">
+            🛒
+            <span>Carrito</span>
+            <strong id="cartCount">0</strong>
+        </button>
 
-    <header class="header">
+        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menú">
+            ☰
+        </button>
+    </div>
 
-        <div class="container nav">
+</div>
 
-            <a href="index.html" class="logo">
-                <span class="logo-icon">EH</span>
-                <span>ElectroHogar</span>
-            </a>
+</header><main><!-- HERO -->
+<section class="hero" id="inicio">
+    <div class="container hero-content">
 
-            <nav class="menu">
+        <div class="hero-text">
+            <span class="tag">EQUIPA TU HOGAR</span>
 
-                <a href="#inicio">Inicio</a>
-                <a href="#productos">Productos</a>
-                <a href="#categorias">Categorías</a>
-                <a href="#como-funciona">Cómo funciona</a>
+            <h1>
+                Lo que necesitas para tu hogar,
+                <span>ahora a tu alcance.</span>
+            </h1>
 
-            </nav>
+            <p>
+                Compra tus electrodomésticos con opciones de
+                financiamiento y disfruta de un proceso sencillo,
+                rápido y seguro.
+            </p>
 
-            <div class="nav-actions">
-
-                <a href="login.html" class="login-btn">
-                    Iniciar sesión
+            <div class="hero-actions">
+                <a href="#productos" class="btn btn-primary btn-large">
+                    Ver productos
                 </a>
 
-                <a href="registro.html" class="register-btn">
-                    Registrarse
+                <a href="#como-funciona" class="btn btn-outline btn-large">
+                    ¿Cómo funciona?
                 </a>
+            </div>
+        </div>
 
+        <div class="hero-card">
+            <span class="hero-card-label">FINANCIAMIENTO</span>
+
+            <h3>0% DE INICIAL</h3>
+
+            <p>
+                Elige tu producto, solicita tu financiamiento
+                y paga cómodamente por cuotas.
+            </p>
+
+            <div class="hero-card-price">
+                <strong>Desde €0</strong>
+                <span>de inicial</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- BENEFICIOS -->
+<section class="benefits">
+    <div class="container benefits-grid">
+
+        <div class="benefit">
+            <div class="benefit-icon">🚚</div>
+            <div>
+                <h3>Entrega</h3>
+                <p>Recibe tu compra en la dirección indicada.</p>
+            </div>
+        </div>
+
+        <div class="benefit">
+            <div class="benefit-icon">💳</div>
+            <div>
+                <h3>0% de inicial</h3>
+                <p>Solicita tu producto sin pagar inicial.</p>
+            </div>
+        </div>
+
+        <div class="benefit">
+            <div class="benefit-icon">🔒</div>
+            <div>
+                <h3>Compra segura</h3>
+                <p>Tus datos estarán protegidos.</p>
+            </div>
+        </div>
+
+        <div class="benefit">
+            <div class="benefit-icon">💬</div>
+            <div>
+                <h3>Atención</h3>
+                <p>Estamos disponibles para ayudarte.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- PRODUCTOS -->
+<section class="section" id="productos">
+    <div class="container">
+
+        <div class="section-header">
+            <div>
+                <span class="tag">NUESTROS PRODUCTOS</span>
+
+                <h2>
+                    Equipa tu hogar
+                </h2>
+
+                <p>
+                    Elige tus productos favoritos y agrégalos al carrito.
+                </p>
             </div>
 
-            <button class="menu-toggle" id="menuToggle">
-                ☰
+            <button class="btn btn-outline" id="openCartFromProducts" type="button">
+                🛒 Ver carrito
+            </button>
+        </div>
+
+        <div class="products-grid" id="productsGrid">
+            <!-- Productos cargados desde productos.js -->
+        </div>
+
+    </div>
+</section>
+
+
+<!-- CATEGORÍAS -->
+<section class="section section-alt" id="categorias">
+    <div class="container">
+
+        <div class="section-header center">
+            <span class="tag">CATEGORÍAS</span>
+
+            <h2>
+                Encuentra lo que necesitas
+            </h2>
+        </div>
+
+        <div class="categories-grid">
+
+            <button class="category-card" type="button"
+                    onclick="filtrarPorCategoria('Televisores')">
+                <span>📺</span>
+                <strong>Televisores</strong>
+                <small>Smart TV y más</small>
+            </button>
+
+            <button class="category-card" type="button"
+                    onclick="filtrarPorCategoria('Lavadoras')">
+                <span>🧺</span>
+                <strong>Lavadoras</strong>
+                <small>Para tu hogar</small>
+            </button>
+
+            <button class="category-card" type="button"
+                    onclick="filtrarPorCategoria('Neveras')">
+                <span>🧊</span>
+                <strong>Neveras</strong>
+                <small>Refrigeración</small>
+            </button>
+
+            <button class="category-card" type="button"
+                    onclick="filtrarPorCategoria('Cocinas')">
+                <span>🍳</span>
+                <strong>Cocinas</strong>
+                <small>Equipamiento</small>
+            </button>
+
+            <button class="category-card" type="button"
+                    onclick="filtrarPorCategoria('Aires acondicionados')">
+                <span>❄️</span>
+                <strong>Aires acondicionados</strong>
+                <small>Climatización</small>
+            </button>
+
+            <button class="category-card" type="button"
+                    onclick="filtrarPorCategoria('Electrodomésticos')">
+                <span>🏠</span>
+                <strong>Electrodomésticos</strong>
+                <small>Para tu hogar</small>
             </button>
 
         </div>
 
-    </header>
+    </div>
+</section>
 
 
-    <!-- ================= HERO ================= -->
+<!-- COMO FUNCIONA -->
+<section class="section" id="como-funciona">
+    <div class="container">
 
-    <main>
+        <div class="section-header center">
+            <span class="tag">PROCESO</span>
 
-        <section class="hero" id="inicio">
+            <h2>
+                Comprar es sencillo
+            </h2>
 
-            <div class="container hero-content">
+            <p>
+                Completa estos pasos y solicita tu compra.
+            </p>
+        </div>
 
-                <div class="hero-text">
+        <div class="steps-grid">
 
-                    <span class="hero-tag">
-                        🏠 EQUIPA TU HOGAR
-                    </span>
+            <div class="step">
+                <span class="step-number">01</span>
+                <h3>Elige</h3>
+                <p>
+                    Selecciona el producto que deseas comprar.
+                </p>
+            </div>
 
-                    <h1>
-                        Lo que necesitas para tu hogar,
-                        <span>ahora a tu alcance.</span>
-                    </h1>
+            <div class="step">
+                <span class="step-number">02</span>
+                <h3>Agrega al carrito</h3>
+                <p>
+                    Selecciona la cantidad y revisa tu pedido.
+                </p>
+            </div>
 
-                    <p>
-                        Encuentra televisores, lavadoras, neveras,
-                        cocinas y mucho más. Compra de contado o
-                        consulta nuestras opciones de financiamiento.
-                    </p>
+            <div class="step">
+                <span class="step-number">03</span>
+                <h3>Indica tus datos</h3>
+                <p>
+                    Coloca tu nombre, teléfono y dirección de entrega.
+                </p>
+            </div>
 
-                    <div class="hero-buttons">
+            <div class="step">
+                <span class="step-number">04</span>
+                <h3>Solicita</h3>
+                <p>
+                    Envía la solicitud y espera la confirmación.
+                </p>
+            </div>
 
-                        <a href="#productos" class="primary-btn">
-                            Ver productos
-                        </a>
+        </div>
 
-                        <a href="#como-funciona" class="secondary-btn">
-                            ¿Cómo funciona?
-                        </a>
+    </div>
+</section>
 
+
+<!-- CTA -->
+<section class="cta-section">
+    <div class="container">
+
+        <div class="cta-box">
+
+            <div>
+                <span class="tag">¿TIENES ALGUNA DUDA?</span>
+
+                <h2>
+                    Estamos aquí para ayudarte.
+                </h2>
+
+                <p>
+                    Comunícate con nosotros y te ayudaremos con tu compra.
+                </p>
+            </div>
+
+            <a href="https://wa.me/" class="btn btn-primary btn-large">
+                💬 Contactar por WhatsApp
+            </a>
+
+        </div>
+
+    </div>
+</section>
+
+</main><!-- CARRITO --><div class="modal-overlay" id="cartModal"><div class="modal cart-modal">
+
+    <button class="modal-close" id="closeCart" type="button">
+        ×
+    </button>
+
+    <div class="modal-header">
+        <span class="tag">TU PEDIDO</span>
+        <h2>Carrito de compras</h2>
+    </div>
+
+    <div id="cartItems" class="cart-items">
+        <!-- Productos del carrito -->
+    </div>
+
+    <div id="cartEmpty" class="empty-state">
+        <div class="empty-icon">🛒</div>
+
+        <h3>Tu carrito está vacío</h3>
+
+        <p>
+            Agrega productos para comenzar tu compra.
+        </p>
+
+        <button class="btn btn-primary" id="continueShopping" type="button">
+            Ver productos
+        </button>
+    </div>
+
+    <div class="cart-summary" id="cartSummary">
+
+        <div class="summary-row">
+            <span>Productos</span>
+            <strong id="cartSubtotal">€0.00</strong>
+        </div>
+
+        <div class="summary-row total">
+            <span>Total</span>
+            <strong id="cartTotal">€0.00</strong>
+        </div>
+
+        <button class="btn btn-primary btn-full" id="checkoutButton" type="button">
+            Comprar
+        </button>
+
+    </div>
+
+</div>
+
+</div><!-- CHECKOUT --><div class="modal-overlay" id="checkoutModal"><div class="modal checkout-modal">
+
+    <button class="modal-close" id="closeCheckout" type="button">
+        ×
+    </button>
+
+    <div class="modal-header">
+        <span class="tag">DATOS DE ENTREGA</span>
+
+        <h2>
+            Completa tu compra
+        </h2>
+
+        <p>
+            Coloca tus datos para poder procesar el pedido.
+        </p>
+    </div>
+
+
+    <form id="checkoutForm">
+
+        <div class="form-grid">
+
+            <div class="form-group">
+                <label class="form-label" for="checkoutNombre">
+                    Nombre completo *
+                </label>
+
+                <input
+                    class="form-control"
+                    id="checkoutNombre"
+                    name="nombre"
+                    type="text"
+                    placeholder="Ej. María González"
+                    required
+                >
+            </div>
+
+
+            <div class="form-group">
+                <label class="form-label" for="checkoutTelefono">
+                    Teléfono / WhatsApp *
+                </label>
+
+                <input
+                    class="form-control"
+                    id="checkoutTelefono"
+                    name="telefono"
+                    type="tel"
+                    placeholder="Ej. 0412-1234567"
+                    required
+                >
+            </div>
+
+
+            <div class="form-group">
+                <label class="form-label" for="checkoutCedula">
+                    Cédula / Documento
+                </label>
+
+                <input
+                    class="form-control"
+                    id="checkoutCedula"
+                    name="documento"
+                    type="text"
+                    placeholder="Ej. V-12345678"
+                >
+            </div>
+
+
+            <div class="form-group">
+                <label class="form-label" for="checkoutCiudad">
+                    Ciudad *
+                </label>
+
+                <input
+                    class="form-control"
+                    id="checkoutCiudad"
+                    name="ciudad"
+                    type="text"
+                    placeholder="Ej. Valle de la Pascua"
+                    required
+                >
+            </div>
+
+
+            <div class="form-group form-grid-full">
+                <label class="form-label" for="checkoutDireccion">
+                    Dirección de entrega *
+                </label>
+
+                <textarea
+                    class="form-control"
+                    id="checkoutDireccion"
+                    name="direccion"
+                    rows="3"
+                    placeholder="Indica calle, urbanización, casa/apartamento, número y otros detalles."
+                    required
+                ></textarea>
+            </div>
+
+
+            <div class="form-group form-grid-full">
+                <label class="form-label" for="checkoutReferencia">
+                    Referencia de dirección
+                </label>
+
+                <input
+                    class="form-control"
+                    id="checkoutReferencia"
+                    name="referencia"
+                    type="text"
+                    placeholder="Ej. Cerca de la plaza, casa color blanca..."
+                >
+            </div>
+
+
+            <div class="form-group form-grid-full">
+                <label class="form-label" for="checkoutModalidad">
+                    Modalidad de compra *
+                </label>
+
+                <select
+                    class="form-control"
+                    id="checkoutModalidad"
+                    name="modalidad"
+                    required
+                >
+                    <option value="">Selecciona una opción</option>
+                    <option value="financiado">
+                        Financiamiento — 0% de inicial
+                    </option>
+                    <option value="contado">
+                        Compra de contado
+                    </option>
+                </select>
+            </div>
+
+
+            <div class="form-group form-grid-full">
+                <label class="form-label" for="checkoutNota">
+                    Información adicional
+                </label>
+
+                <textarea
+                    class="form-control"
+                    id="checkoutNota"
+                    name="nota"
+                    rows="3"
+                    placeholder="Alguna indicación adicional sobre tu pedido..."
+                ></textarea>
+            </div>
+
+        </div>
+
+
+        <div class="checkout-resume">
+
+            <h3>Resumen del pedido</h3>
+
+            <div id="checkoutSummary">
+                <!-- Resumen -->
+            </div>
+
+            <div class="summary-row total">
+                <span>Total</span>
+                <strong id="checkoutTotal">€0.00</strong>
+            </div>
+
+        </div>
+
+
+        <div id="checkoutMessage" class="form-message"></div>
+
+
+        <div class="form-actions">
+
+            <button
+                type="button"
+                class="btn btn-outline"
+                id="backToCart"
+            >
+                Volver al carrito
+            </button>
+
+            <button
+                type="submit"
+                class="btn btn-primary"
+            >
+                Enviar solicitud
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
+
+</div><!-- FOOTER --><footer class="site-footer"><div class="container footer-grid">
+
+    <div>
+        <a href="index.html" class="logo">
+            <span class="logo-mark">DS</span>
+            <span>DANI STORE</span>
+        </a>
+
+        <p>
+            Electrodomésticos para tu hogar,
+            con opciones de compra y financiamiento.
+        </p>
+    </div>
+
+
+    <div>
+        <h4>Comprar</h4>
+
+        <a href="#productos">Productos</a>
+        <a href="#categorias">Categorías</a>
+        <a href="#como-funciona">Cómo funciona</a>
+    </div>
+
+
+    <div>
+        <h4>Cuenta</h4>
+
+        <a href="login.html">Iniciar sesión</a>
+        <a href="registro.html">Crear cuenta</a>
+        <a href="cuenta.html">Mi cuenta</a>
+    </div>
+
+
+    <div>
+        <h4>Contacto</h4>
+
+        <a href="https://wa.me/">
+            WhatsApp
+        </a>
+
+        <a href="mailto:contacto@danistore.com">
+            Correo electrónico
+        </a>
+    </div>
+
+</div>
+
+
+<div class="container footer-bottom">
+    <p>
+        © 2026 DANI STORE. Todos los derechos reservados.
+    </p>
+</div>
+
+</footer><script src="./js/productos.js"></script><script src="./js/app.js"></script><script>
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const cartButton = document.getElementById("cartButton");
+    const cartCount = document.getElementById("cartCount");
+
+    const cartModal = document.getElementById("cartModal");
+    const closeCart = document.getElementById("closeCart");
+    const continueShopping = document.getElementById("continueShopping");
+
+    const checkoutModal = document.getElementById("checkoutModal");
+    const closeCheckout = document.getElementById("closeCheckout");
+
+    const checkoutButton = document.getElementById("checkoutButton");
+    const backToCart = document.getElementById("backToCart");
+
+    const cartItems = document.getElementById("cartItems");
+    const cartEmpty = document.getElementById("cartEmpty");
+    const cartSummary = document.getElementById("cartSummary");
+
+    const cartSubtotal = document.getElementById("cartSubtotal");
+    const cartTotal = document.getElementById("cartTotal");
+
+    const checkoutForm = document.getElementById("checkoutForm");
+    const checkoutSummary = document.getElementById("checkoutSummary");
+    const checkoutTotal = document.getElementById("checkoutTotal");
+    const checkoutMessage = document.getElementById("checkoutMessage");
+
+    const openCartFromProducts =
+        document.getElementById("openCartFromProducts");
+
+
+    let carrito = JSON.parse(
+        localStorage.getItem("dani_store_carrito") || "[]"
+    );
+
+
+    function precioProducto(producto) {
+
+        return Number(
+            producto.precioFinanciado ??
+            producto.precio_financiado ??
+            producto.precio ??
+            producto.precioContado ??
+            0
+        );
+
+    }
+
+
+    function guardarCarrito() {
+
+        localStorage.setItem(
+            "dani_store_carrito",
+            JSON.stringify(carrito)
+        );
+
+    }
+
+
+    function cantidadTotal() {
+
+        return carrito.reduce(
+            (total, item) => total + item.cantidad,
+            0
+        );
+
+    }
+
+
+    function totalCarrito() {
+
+        return carrito.reduce(
+            (total, item) => {
+                return total + (precioProducto(item.producto) * item.cantidad);
+            },
+            0
+        );
+
+    }
+
+
+    function actualizarContador() {
+
+        cartCount.textContent = cantidadTotal();
+
+    }
+
+
+    function formatearEuro(valor) {
+
+        return new Intl.NumberFormat("es-ES", {
+            style: "currency",
+            currency: "EUR"
+        }).format(valor);
+
+    }
+
+
+    function agregarAlCarrito(id) {
+
+        const producto = productos.find(
+            item => Number(item.id) === Number(id)
+        );
+
+        if (!producto) {
+            alert("No se encontró el producto.");
+            return;
+        }
+
+
+        const existente = carrito.find(
+            item => Number(item.producto.id) === Number(id)
+        );
+
+
+        if (existente) {
+
+            existente.cantidad++;
+
+        } else {
+
+            carrito.push({
+                producto,
+                cantidad: 1
+            });
+
+        }
+
+
+        guardarCarrito();
+        actualizarContador();
+        renderCarrito();
+
+        abrirCarrito();
+
+    }
+
+
+    function cambiarCantidad(id, cambio) {
+
+        const item = carrito.find(
+            elemento => Number(elemento.producto.id) === Number(id)
+        );
+
+        if (!item) return;
+
+
+        item.cantidad += cambio;
+
+
+        if (item.cantidad <= 0) {
+
+            carrito = carrito.filter(
+                elemento =>
+                    Number(elemento.producto.id) !== Number(id)
+            );
+
+        }
+
+
+        guardarCarrito();
+        actualizarContador();
+        renderCarrito();
+
+    }
+
+
+    function eliminarDelCarrito(id) {
+
+        carrito = carrito.filter(
+            item => Number(item.producto.id) !== Number(id)
+        );
+
+        guardarCarrito();
+        actualizarContador();
+        renderCarrito();
+
+    }
+
+
+    function renderCarrito() {
+
+        if (!carrito.length) {
+
+            cartItems.innerHTML = "";
+
+            cartEmpty.style.display = "block";
+            cartSummary.style.display = "none";
+
+            return;
+
+        }
+
+
+        cartEmpty.style.display = "none";
+        cartSummary.style.display = "block";
+
+
+        cartItems.innerHTML = carrito.map(item => {
+
+            const producto = item.producto;
+            const precio = precioProducto(producto);
+
+            return `
+
+                <div class="cart-item">
+
+                    <div class="cart-item-image">
+                        <img
+                            src="${producto.imagen}"
+                            alt="${producto.nombre}"
+                        >
                     </div>
 
-                </div>
+                    <div class="cart-item-info">
 
-                <div class="hero-card">
-
-                    <div class="hero-card-icon">
-                        🛒
-                    </div>
-
-                    <h3>
-                        Compra a tu ritmo
-                    </h3>
-
-                    <p>
-                        Consulta tu inicial y tus cuotas
-                        antes de solicitar tu producto.
-                    </p>
-
-                    <div class="hero-payment">
-
-                        <span>Ejemplo de cuota</span>
+                        <h3>
+                            ${producto.nombre}
+                        </h3>
 
                         <strong>
-                            $50 <small>/ quincenal</small>
+                            ${formatearEuro(precio)}
                         </strong>
 
+                        <div class="cart-item-controls">
+
+                            <button
+                                type="button"
+                                onclick="cambiarCantidadCarrito(${producto.id}, -1)"
+                            >
+                                −
+                            </button>
+
+                            <span>
+                                ${item.cantidad}
+                            </span>
+
+                            <button
+                                type="button"
+                                onclick="cambiarCantidadCarrito(${producto.id}, 1)"
+                            >
+                                +
+                            </button>
+
+                            <button
+                                type="button"
+                                class="cart-remove"
+                                onclick="eliminarProductoCarrito(${producto.id})"
+                            >
+                                🗑️
+                            </button>
+
+                        </div>
+
                     </div>
+
+                    <strong class="cart-item-total">
+                        ${formatearEuro(precio * item.cantidad)}
+                    </strong>
 
                 </div>
 
-            </div>
+            `;
 
-        </section>
-
-
-        <!-- ================= BENEFICIOS ================= -->
-
-        <section class="benefits">
-
-            <div class="container benefits-grid">
-
-                <div class="benefit">
-
-                    <div class="benefit-icon">
-                        🚚
-                    </div>
-
-                    <div>
-                        <h3>Entrega</h3>
-                        <p>Consulta disponibilidad y entrega.</p>
-                    </div>
-
-                </div>
-
-                <div class="benefit">
-
-                    <div class="benefit-icon">
-                        💳
-                    </div>
-
-                    <div>
-                        <h3>Financiamiento</h3>
-                        <p>Opciones de pago por cuotas.</p>
-                    </div>
-
-                </div>
-
-                <div class="benefit">
-
-                    <div class="benefit-icon">
-                        🔒
-                    </div>
-
-                    <div>
-                        <h3>Compra segura</h3>
-                        <p>Tu cuenta protegida.</p>
-                    </div>
-
-                </div>
-
-                <div class="benefit">
-
-                    <div class="benefit-icon">
-                        💬
-                    </div>
-
-                    <div>
-                        <h3>Atención</h3>
-                        <p>Estamos disponibles para ayudarte.</p>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
+        }).join("");
 
 
-        <!-- ================= PRODUCTOS ================= -->
+        const total = totalCarrito();
 
-        <section class="products-section" id="productos">
+        cartSubtotal.textContent = formatearEuro(total);
+        cartTotal.textContent = formatearEuro(total);
 
-            <div class="container">
-
-                <div class="section-heading">
-
-                    <div>
-
-                        <span class="section-tag">
-                            NUESTRO CATÁLOGO
-                        </span>
-
-                        <h2>
-                            Productos destacados
-                        </h2>
-
-                    </div>
-
-                    <a href="#" class="view-all">
-                        Ver todos →
-                    </a>
-
-                </div>
+    }
 
 
-                <div class="products-grid" id="productsGrid">
+    function abrirCarrito() {
 
-                    <!-- Los productos serán cargados
-                         automáticamente mediante JavaScript -->
+        renderCarrito();
 
-                </div>
+        cartModal.classList.add("active");
 
-            </div>
+        document.body.style.overflow = "hidden";
 
-        </section>
+    }
 
 
-        <!-- ================= CATEGORÍAS ================= -->
+    function cerrarCarrito() {
 
-        <section class="categories-section" id="categorias">
+        cartModal.classList.remove("active");
 
-            <div class="container">
+        document.body.style.overflow = "";
 
-                <div class="section-heading centered">
+    }
 
-                    <span class="section-tag">
-                        ENCUENTRA LO QUE BUSCAS
+
+    function abrirCheckout() {
+
+        if (!carrito.length) {
+
+            alert("Agrega al menos un producto al carrito.");
+
+            return;
+
+        }
+
+
+        renderCheckout();
+
+        checkoutModal.classList.add("active");
+
+        cartModal.classList.remove("active");
+
+        document.body.style.overflow = "hidden";
+
+    }
+
+
+    function cerrarCheckout() {
+
+        checkoutModal.classList.remove("active");
+
+        document.body.style.overflow = "";
+
+    }
+
+
+    function renderCheckout() {
+
+        checkoutSummary.innerHTML = carrito.map(item => {
+
+            const precio = precioProducto(item.producto);
+
+            return `
+
+                <div class="summary-row">
+
+                    <span>
+                        ${item.producto.nombre}
+                        × ${item.cantidad}
                     </span>
 
-                    <h2>
-                        Categorías
-                    </h2>
+                    <strong>
+                        ${formatearEuro(precio * item.cantidad)}
+                    </strong>
 
                 </div>
 
+            `;
 
-                <div class="categories-grid">
+        }).join("");
 
-                    <a href="#" class="category-card">
 
-                        <span>📺</span>
+        checkoutTotal.textContent =
+            formatearEuro(totalCarrito());
 
-                        <h3>
-                            Televisores
-                        </h3>
+    }
 
-                        <p>
-                            Smart TV y más
-                        </p>
 
-                    </a>
+    cartButton.addEventListener(
+        "click",
+        abrirCarrito
+    );
 
 
-                    <a href="#" class="category-card">
+    openCartFromProducts.addEventListener(
+        "click",
+        abrirCarrito
+    );
 
-                        <span>🧺</span>
 
-                        <h3>
-                            Lavadoras
-                        </h3>
+    closeCart.addEventListener(
+        "click",
+        cerrarCarrito
+    );
 
-                        <p>
-                            Para tu hogar
-                        </p>
 
-                    </a>
+    continueShopping.addEventListener(
+        "click",
+        cerrarCarrito
+    );
 
 
-                    <a href="#" class="category-card">
+    checkoutButton.addEventListener(
+        "click",
+        abrirCheckout
+    );
 
-                        <span>❄️</span>
 
-                        <h3>
-                            Neveras
-                        </h3>
+    closeCheckout.addEventListener(
+        "click",
+        cerrarCheckout
+    );
 
-                        <p>
-                            Conserva tus alimentos
-                        </p>
 
-                    </a>
+    backToCart.addEventListener(
+        "click",
+        () => {
 
+            checkoutModal.classList.remove("active");
+            cartModal.classList.add("active");
 
-                    <a href="#" class="category-card">
+        }
+    );
 
-                        <span>🔥</span>
 
-                        <h3>
-                            Cocinas
-                        </h3>
+    cartModal.addEventListener(
+        "click",
+        event => {
 
-                        <p>
-                            Cocina con comodidad
-                        </p>
+            if (event.target === cartModal) {
+                cerrarCarrito();
+            }
 
-                    </a>
+        }
+    );
 
 
-                    <a href="#" class="category-card">
+    checkoutModal.addEventListener(
+        "click",
+        event => {
 
-                        <span>❄️</span>
+            if (event.target === checkoutModal) {
+                cerrarCheckout();
+            }
 
-                        <h3>
-                            Aires acondicionados
-                        </h3>
+        }
+    );
 
-                        <p>
-                            Más comodidad
-                        </p>
 
-                    </a>
+    checkoutForm.addEventListener(
+        "submit",
+        event => {
 
+            event.preventDefault();
 
-                    <a href="#" class="category-card">
 
-                        <span>⚡</span>
+            const datos = new FormData(checkoutForm);
 
-                        <h3>
-                            Electrodomésticos
-                        </h3>
 
-                        <p>
-                            Para todos los espacios
-                        </p>
+            const pedido = {
 
-                    </a>
+                numero:
+                    "DS-" +
+                    Date.now()
+                        .toString()
+                        .slice(-8),
 
-                </div>
+                cliente: {
 
-            </div>
+                    nombre: datos.get("nombre"),
+                    telefono: datos.get("telefono"),
+                    documento: datos.get("documento"),
+                    ciudad: datos.get("ciudad"),
+                    direccion: datos.get("direccion"),
+                    referencia: datos.get("referencia")
 
-        </section>
+                },
 
+                modalidad: datos.get("modalidad"),
 
-        <!-- ================= COMO FUNCIONA ================= -->
+                nota: datos.get("nota"),
 
-        <section class="how-section" id="como-funciona">
+                productos: carrito.map(item => ({
 
-            <div class="container">
+                    id: item.producto.id,
+                    nombre: item.producto.nombre,
+                    cantidad: item.cantidad,
+                    precio: precioProducto(item.producto)
 
-                <div class="section-heading centered">
+                })),
 
-                    <span class="section-tag">
-                        SIMPLE Y TRANSPARENTE
-                    </span>
+                total: totalCarrito(),
 
-                    <h2>
-                        ¿Cómo comprar a cuotas?
-                    </h2>
+                fecha:
+                    new Date().toISOString(),
 
-                    <p>
-                        Comprar tu producto financiado es muy sencillo.
-                    </p>
+                estado:
+                    "pendiente"
 
-                </div>
+            };
 
 
-                <div class="steps">
+            localStorage.setItem(
+                "dani_store_ultimo_pedido",
+                JSON.stringify(pedido)
+            );
 
-                    <div class="step">
 
-                        <div class="step-number">
-                            01
-                        </div>
+            checkoutMessage.className =
+                "form-message success";
 
-                        <h3>
-                            Elige tu producto
-                        </h3>
+            checkoutMessage.textContent =
+                "Solicitud enviada correctamente. Número de pedido: " +
+                pedido.numero;
 
-                        <p>
-                            Busca el electrodoméstico que deseas
-                            y revisa sus opciones de pago.
-                        </p>
 
-                    </div>
+            carrito = [];
 
+            guardarCarrito();
+            actualizarContador();
+            renderCarrito();
 
-                    <div class="step">
 
-                        <div class="step-number">
-                            02
-                        </div>
+            setTimeout(() => {
 
-                        <h3>
-                            Consulta tu plan
-                        </h3>
+                cerrarCheckout();
 
-                        <p>
-                            Revisa la inicial, cantidad de cuotas
-                            y monto de cada pago.
-                        </p>
+                window.location.href =
+                    "cuenta.html";
 
-                    </div>
+            }, 1800);
 
+        }
+    );
 
-                    <div class="step">
 
-                        <div class="step-number">
-                            03
-                        </div>
+    window.cambiarCantidadCarrito =
+        cambiarCantidad;
 
-                        <h3>
-                            Solicita tu compra
-                        </h3>
+    window.eliminarProductoCarrito =
+        eliminarDelCarrito;
 
-                        <p>
-                            Regístrate y envía tu solicitud
-                            de financiamiento.
-                        </p>
+    window.agregarAlCarrito =
+        agregarAlCarrito;
 
-                    </div>
 
+    actualizarContador();
 
-                    <div class="step">
+    renderCarrito();
 
-                        <div class="step-number">
-                            04
-                        </div>
+});
 
-                        <h3>
-                            Paga tus cuotas
-                        </h3>
-
-                        <p>
-                            Consulta tus pagos y lleva el control
-                            de tu crédito desde tu cuenta.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================= CTA ================= -->
-
-        <section class="cta-section">
-
-            <div class="container cta">
-
-                <div>
-
-                    <span class="section-tag">
-                        ¿TIENES ALGUNA DUDA?
-                    </span>
-
-                    <h2>
-                        Estamos aquí para ayudarte.
-                    </h2>
-
-                    <p>
-                        Escríbenos y consulta disponibilidad,
-                        precios y opciones de financiamiento.
-                    </p>
-
-                </div>
-
-                <a href="#" class="whatsapp-btn">
-                    💬 Contactar por WhatsApp
-                </a>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- ================= FOOTER ================= -->
-
-    <footer class="footer">
-
-        <div class="container footer-grid">
-
-            <div>
-
-                <a href="index.html" class="logo footer-logo">
-                    <span class="logo-icon">EH</span>
-                    <span>ElectroHogar</span>
-                </a>
-
-                <p>
-                    Electrodomésticos y productos para tu hogar,
-                    con opciones de compra de contado y cuotas.
-                </p>
-
-            </div>
-
-
-            <div>
-
-                <h3>
-                    Tienda
-                </h3>
-
-                <a href="#productos">
-                    Productos
-                </a>
-
-                <a href="#categorias">
-                    Categorías
-                </a>
-
-                <a href="#como-funciona">
-                    Cómo funciona
-                </a>
-
-            </div>
-
-
-            <div>
-
-                <h3>
-                    Cuenta
-                </h3>
-
-                <a href="login.html">
-                    Iniciar sesión
-                </a>
-
-                <a href="registro.html">
-                    Crear cuenta
-                </a>
-
-            </div>
-
-
-            <div>
-
-                <h3>
-                    Contacto
-                </h3>
-
-                <p>
-                    WhatsApp
-                </p>
-
-                <p>
-                    Lunes a sábado
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="footer-bottom">
-
-            <div class="container">
-
-                <p>
-                    © 2026 ElectroHogar. Todos los derechos reservados.
-                </p>
-
-            </div>
-
-        </div>
-
-    </footer>
-
-
-    <!-- ================= JAVASCRIPT ================= -->
-
-    <script src="js/productos.js"></script>
-    <script src="js/app.js"></script>
-
-</body>
+</script></body>
 </html>
