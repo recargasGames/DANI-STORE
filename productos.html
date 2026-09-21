@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Consulta el precio, financiamiento y cuotas de nuestros electrodomésticos."
+    >
+
+    <title>Producto | ElectroHogar</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <!-- ==============================
+         HEADER
+    =============================== -->
+    <header class="header">
+        <div class="container header-content">
+
+            <a href="index.html" class="logo">
+                <span class="logo-icon">EH</span>
+
+                <span class="logo-text">
+                    ElectroHogar
+                </span>
+            </a>
+
+            <nav class="menu" id="mainMenu">
+                <a href="index.html">Inicio</a>
+                <a href="index.html#productos">Productos</a>
+                <a href="index.html#categorias">Categorías</a>
+                <a href="index.html#como-funciona">Cómo funciona</a>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="login.html" class="btn btn-outline">
+                    Iniciar sesión
+                </a>
+
+                <a href="registro.html" class="btn btn-primary">
+                    Crear cuenta
+                </a>
+            </div>
+
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                type="button"
+                aria-label="Abrir menú"
+                aria-expanded="false"
+            >
+                ☰
+            </button>
+
+        </div>
+    </header>
+
+
+    <!-- ==============================
+         CONTENIDO
+    =============================== -->
+    <main>
+
+        <section class="section">
+            <div class="container">
+
+                <!-- Volver -->
+                <a
+                    href="index.html#productos"
+                    class="btn btn-outline"
+                    style="margin-bottom: 25px;"
+                >
+                    ← Volver a productos
+                </a>
+
+                <!-- Producto -->
+                <div
+                    id="productoDetalle"
+                    class="product-detail"
+                >
+                    <div class="panel">
+                        <p>Cargando producto...</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- ==============================
+         WHATSAPP
+    =============================== -->
+    <a
+        href="https://wa.me/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="whatsapp-float"
+        aria-label="Contactar por WhatsApp"
+    >
+        WhatsApp
+    </a>
+
+
+    <!-- ==============================
+         FOOTER
+    =============================== -->
+    <footer class="footer">
+        <div class="container">
+
+            <div class="footer-content">
+
+                <div>
+                    <h3>ElectroHogar</h3>
+
+                    <p>
+                        Equipa tu hogar con opciones de
+                        compra de contado o financiamiento.
+                    </p>
+                </div>
+
+                <div>
+                    <h4>Enlaces</h4>
+
+                    <a href="index.html">
+                        Inicio
+                    </a>
+
+                    <a href="index.html#productos">
+                        Productos
+                    </a>
+
+                    <a href="login.html">
+                        Iniciar sesión
+                    </a>
+                </div>
+
+                <div>
+                    <h4>Atención</h4>
+
+                    <p>
+                        Atención personalizada
+                    </p>
+
+                    <p>
+                        Lunes a sábado
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                © 2026 ElectroHogar. Todos los derechos reservados.
+            </div>
+
+        </div>
+    </footer>
+
+
+    <!-- ==============================
+         SCRIPTS
+    =============================== -->
+    <script src="js/productos.js"></script>
+    <script src="js/app.js"></script>
+
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", () => {
+
+            const contenedor =
+                document.getElementById("productoDetalle");
+
+            const parametros =
+                new URLSearchParams(window.location.search);
+
+            const idProducto =
+                Number(parametros.get("id"));
+
+            const producto =
+                productos.find(item => item.id === idProducto);
+
+
+            // --------------------------------
+            // Producto no encontrado
+            // --------------------------------
+
+            if (!producto) {
+
+                contenedor.innerHTML = `
+                    <div class="panel">
+                        <h2>Producto no encontrado</h2>
+
+                        <p>
+                            El producto que buscas no existe
+                            o ya no está disponible.
+                        </p>
+
+                        <a
+                            href="index.html#productos"
+                            class="btn btn-primary"
+                        >
+                            Ver productos
+                        </a>
+                    </div>
+                `;
+
+                return;
+            }
+
+
+            // --------------------------------
+            // Datos del producto
+            // --------------------------------
+
+            document.title =
+                `${producto.nombre} | ElectroHogar`;
+
+
+            const disponible =
+                producto.stock > 0;
+
+
+            contenedor.innerHTML = `
+
+                <div class="product-detail-grid">
+
+                    <!-- IMAGEN -->
+
+                    <div class="product-detail-image">
+
+                        <img
+                            src="${producto.imagen}"
+                            alt="${producto.nombre}"
+                        >
+
+                        ${
+                            producto.oferta
+                                ? `<span class="product-badge">
+                                    Oferta
+                                   </span>`
+                                : ""
+                        }
+
+                        ${
+                            producto.destacado
+                                ? `<span class="product-badge">
+                                    Destacado
+                                   </span>`
+                                : ""
+                        }
+
+                    </div>
+
+
+                    <!-- INFORMACIÓN -->
+
+                    <div class="product-detail-info">
+
+                        <span class="product-category">
+                            ${producto.categoria}
+                        </span>
+
+                        <h1>
+                            ${producto.nombre}
+                        </h1>
+
+                        <p class="product-description">
+                            ${producto.descripcion}
+                        </p>
+
+
+                        <!-- PRECIO DE CONTADO -->
+
+                        <div class="detail-price-box">
+
+                            <span>
+                                Precio de contado
+                            </span>
+
+                            <strong>
+                                ${formatearPrecio(
+                                    producto.precioContado
+                                )}
+                            </strong>
+
+                        </div>
+
+
+                        <!-- FINANCIAMIENTO -->
+
+                        <div class="financing-box">
+
+                            <h3>
+                                Compra financiada
+                            </h3>
+
+                            <div class="financing-row">
+
+                                <span>
+                                    Precio financiado
+                                </span>
+
+                                <strong>
+                                    ${formatearPrecio(
+                                        producto.precioFinanciado
+                                    )}
+                                </strong>
+
+                            </div>
+
+
+                            <div class="financing-row">
+
+                                <span>
+                                    Inicial
+                                </span>
+
+                                <strong>
+                                    ${formatearPrecio(
+                                        producto.inicial
+                                    )}
+                                </strong>
+
+                            </div>
+
+
+                            <div class="financing-row">
+
+                                <span>
+                                    Cuotas
+                                </span>
+
+                                <strong>
+                                    ${producto.cuotas}
+                                    quincenas
+                                </strong>
+
+                            </div>
+
+
+                            <div class="financing-highlight">
+
+                                <span>
+                                    Pago quincenal
+                                </span>
+
+                                <strong>
+                                    ${formatearPrecio(
+                                        producto.cuota
+                                    )}
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- DISPONIBILIDAD -->
+
+                        <div class="product-availability">
+
+                            ${
+                                disponible
+                                    ? `
+                                        <span class="status success">
+                                            ✓ Disponible
+                                        </span>
+
+                                        <span>
+                                            ${producto.stock}
+                                            unidad(es) disponibles
+                                        </span>
+                                      `
+                                    : `
+                                        <span class="status danger">
+                                            Agotado
+                                        </span>
+                                      `
+                            }
+
+                        </div>
+
+
+                        <!-- ACCIONES -->
+
+                        <div class="product-actions">
+
+                            ${
+                                disponible
+                                    ? `
+                                        <a
+                                            href="registro.html?producto=${producto.id}"
+                                            class="btn btn-primary"
+                                        >
+                                            Solicitar financiamiento
+                                        </a>
+
+                                        <a
+                                            href="registro.html?producto=${producto.id}&tipo=contado"
+                                            class="btn btn-outline"
+                                        >
+                                            Comprar de contado
+                                        </a>
+                                      `
+                                    : `
+                                        <button
+                                            class="btn btn-outline"
+                                            disabled
+                                        >
+                                            Producto agotado
+                                        </button>
+                                      `
+                            }
+
+                        </div>
+
+
+                        <!-- INFORMACIÓN -->
+
+                        <div class="product-info-list">
+
+                            <div>
+                                <strong>✓</strong>
+                                Compra segura
+                            </div>
+
+                            <div>
+                                <strong>✓</strong>
+                                Financiamiento quincenal
+                            </div>
+
+                            <div>
+                                <strong>✓</strong>
+                                Atención personalizada
+                            </div>
+
+                            <div>
+                                <strong>✓</strong>
+                                Consulta tu crédito desde tu cuenta
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            `;
+        });
+
+    </script>
+
+</body>
+</html>
