@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Panel administrativo de ElectroHogar."
+    >
+
+    <title>Administración | ElectroHogar</title>
+
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+
+    <!-- ==========================================
+         HEADER
+    =========================================== -->
+
+    <header class="header">
+
+        <div class="container header-content">
+
+            <a href="../index.html" class="logo">
+
+                <span class="logo-icon">
+                    EH
+                </span>
+
+                <span class="logo-text">
+                    ElectroHogar
+                </span>
+
+            </a>
+
+
+            <nav class="menu" id="mainMenu">
+
+                <a href="../index.html">
+                    Tienda
+                </a>
+
+                <a href="index.html">
+                    Dashboard
+                </a>
+
+                <a href="productos.html">
+                    Productos
+                </a>
+
+                <a href="clientes.html">
+                    Clientes
+                </a>
+
+                <a href="creditos.html">
+                    Créditos
+                </a>
+
+                <a href="pagos.html">
+                    Pagos
+                </a>
+
+            </nav>
+
+
+            <div class="nav-actions">
+
+                <a
+                    href="../index.html"
+                    class="btn btn-outline"
+                >
+                    Ver tienda
+                </a>
+
+                <button
+                    type="button"
+                    class="btn btn-primary"
+                    id="logoutAdmin"
+                >
+                    Salir
+                </button>
+
+            </div>
+
+
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                type="button"
+                aria-label="Abrir menú"
+                aria-expanded="false"
+            >
+                ☰
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- ==========================================
+         DASHBOARD
+    =========================================== -->
+
+    <main>
+
+        <section class="section">
+
+            <div class="container">
+
+
+                <!-- ENCABEZADO -->
+
+                <div class="panel">
+
+                    <span class="tag">
+                        PANEL ADMINISTRATIVO
+                    </span>
+
+                    <h1>
+                        Dashboard
+                    </h1>
+
+                    <p>
+                        Gestiona productos, clientes,
+                        créditos y pagos desde un solo lugar.
+                    </p>
+
+                </div>
+
+
+                <!-- ==================================
+                     ESTADÍSTICAS
+                =================================== -->
+
+                <div class="dashboard-stats">
+
+
+                    <div class="dashboard-stat">
+
+                        <span>
+                            Ventas totales
+                        </span>
+
+                        <strong>
+                            $12,450
+                        </strong>
+
+                        <small>
+                            Este mes
+                        </small>
+
+                    </div>
+
+
+                    <div class="dashboard-stat">
+
+                        <span>
+                            Clientes
+                        </span>
+
+                        <strong>
+                            48
+                        </strong>
+
+                        <small>
+                            Registrados
+                        </small>
+
+                    </div>
+
+
+                    <div class="dashboard-stat">
+
+                        <span>
+                            Créditos activos
+                        </span>
+
+                        <strong>
+                            23
+                        </strong>
+
+                        <small>
+                            En curso
+                        </small>
+
+                    </div>
+
+
+                    <div class="dashboard-stat">
+
+                        <span>
+                            Pagos pendientes
+                        </span>
+
+                        <strong>
+                            $3,280
+                        </strong>
+
+                        <small>
+                            Por cobrar
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ==================================
+                     ACCIONES RÁPIDAS
+                =================================== -->
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <h2>
+                                Acciones rápidas
+                            </h2>
+
+                            <p>
+                                Administra las principales
+                                funciones de la tienda.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="admin-actions-grid">
+
+
+                        <a
+                            href="productos.html"
+                            class="admin-action"
+                        >
+
+                            <span class="admin-action-icon">
+                                📦
+                            </span>
+
+                            <strong>
+                                Productos
+                            </strong>
+
+                            <span>
+                                Agregar y administrar
+                                electrodomésticos.
+                            </span>
+
+                        </a>
+
+
+                        <a
+                            href="clientes.html"
+                            class="admin-action"
+                        >
+
+                            <span class="admin-action-icon">
+                                👥
+                            </span>
+
+                            <strong>
+                                Clientes
+                            </strong>
+
+                            <span>
+                                Consultar clientes
+                                registrados.
+                            </span>
+
+                        </a>
+
+
+                        <a
+                            href="creditos.html"
+                            class="admin-action"
+                        >
+
+                            <span class="admin-action-icon">
+                                💳
+                            </span>
+
+                            <strong>
+                                Créditos
+                            </strong>
+
+                            <span>
+                                Revisar y aprobar
+                                solicitudes.
+                            </span>
+
+                        </a>
+
+
+                        <a
+                            href="pagos.html"
+                            class="admin-action"
+                        >
+
+                            <span class="admin-action-icon">
+                                💰
+                            </span>
+
+                            <strong>
+                                Pagos
+                            </strong>
+
+                            <span>
+                                Registrar y consultar
+                                pagos.
+                            </span>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ==================================
+                     ACTIVIDAD RECIENTE
+                =================================== -->
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <h2>
+                                Actividad reciente
+                            </h2>
+
+                            <p>
+                                Últimas operaciones de la tienda.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="table-responsive">
+
+                        <table class="data-table">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>
+                                        Cliente
+                                    </th>
+
+                                    <th>
+                                        Operación
+                                    </th>
+
+                                    <th>
+                                        Producto
+                                    </th>
+
+                                    <th>
+                                        Monto
+                                    </th>
+
+                                    <th>
+                                        Estado
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>
+                                        María González
+                                    </td>
+
+                                    <td>
+                                        Compra financiada
+                                    </td>
+
+                                    <td>
+                                        Smart TV Samsung 55"
+                                    </td>
+
+                                    <td>
+                                        $700
+                                    </td>
+
+                                    <td>
+                                        <span class="status success">
+                                            Aprobado
+                                        </span>
+                                    </td>
+
+                                </tr>
+
+
+                                <tr>
+
+                                    <td>
+                                        Carlos Rodríguez
+                                    </td>
+
+                                    <td>
+                                        Pago de cuota
+                                    </td>
+
+                                    <td>
+                                        Lavadora LG 12 kg
+                                    </td>
+
+                                    <td>
+                                        $40
+                                    </td>
+
+                                    <td>
+                                        <span class="status success">
+                                            Pagado
+                                        </span>
+                                    </td>
+
+                                </tr>
+
+
+                                <tr>
+
+                                    <td>
+                                        Ana Pérez
+                                    </td>
+
+                                    <td>
+                                        Solicitud de crédito
+                                    </td>
+
+                                    <td>
+                                        Nevera Mabe
+                                    </td>
+
+                                    <td>
+                                        $650
+                                    </td>
+
+                                    <td>
+                                        <span class="status warning">
+                                            Pendiente
+                                        </span>
+                                    </td>
+
+                                </tr>
+
+
+                                <tr>
+
+                                    <td>
+                                        José Martínez
+                                    </td>
+
+                                    <td>
+                                        Pago atrasado
+                                    </td>
+
+                                    <td>
+                                        Aire acondicionado
+                                    </td>
+
+                                    <td>
+                                        $35
+                                    </td>
+
+                                    <td>
+                                        <span class="status danger">
+                                            Vencido
+                                        </span>
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ==================================
+                     ESTADO DEL SISTEMA
+                =================================== -->
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <h2>
+                                Estado de la tienda
+                            </h2>
+
+                            <p>
+                                Información general del sistema.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="system-status">
+
+
+                        <div class="system-status-item">
+
+                            <span>
+                                Tienda
+                            </span>
+
+                            <span class="status success">
+                                ● Activa
+                            </span>
+
+                        </div>
+
+
+                        <div class="system-status-item">
+
+                            <span>
+                                Inventario
+                            </span>
+
+                            <span class="status success">
+                                ● Funcionando
+                            </span>
+
+                        </div>
+
+
+                        <div class="system-status-item">
+
+                            <span>
+                                Clientes
+                            </span>
+
+                            <span class="status success">
+                                ● Funcionando
+                            </span>
+
+                        </div>
+
+
+                        <div class="system-status-item">
+
+                            <span>
+                                Sistema de créditos
+                            </span>
+
+                            <span class="status warning">
+                                ● Pendiente de conexión
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==========================================
+         FOOTER
+    =========================================== -->
+
+    <footer class="footer">
+
+        <div class="container">
+
+            <div class="footer-bottom">
+                © 2026 ElectroHogar · Panel administrativo
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="../js/app.js"></script>
+
+    <script>
+
+        document
+            .getElementById("logoutAdmin")
+            .addEventListener("click", () => {
+
+                /*
+                 * Más adelante:
+                 *
+                 * Firebase Authentication
+                 * + comprobación del rol ADMIN.
+                 */
+
+                window.location.href =
+                    "../index.html";
+
+            });
+
+    </script>
+
+</body>
+</html>
