@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Administración de clientes de ElectroHogar."
+    >
+
+    <title>Clientes | Administración | ElectroHogar</title>
+
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+
+    <!-- ==========================================
+         HEADER
+    =========================================== -->
+
+    <header class="header">
+
+        <div class="container header-content">
+
+            <a href="../index.html" class="logo">
+
+                <span class="logo-icon">
+                    EH
+                </span>
+
+                <span class="logo-text">
+                    ElectroHogar
+                </span>
+
+            </a>
+
+
+            <nav class="menu" id="mainMenu">
+
+                <a href="index.html">
+                    Dashboard
+                </a>
+
+                <a href="productos.html">
+                    Productos
+                </a>
+
+                <a href="clientes.html" class="active">
+                    Clientes
+                </a>
+
+                <a href="creditos.html">
+                    Créditos
+                </a>
+
+                <a href="pagos.html">
+                    Pagos
+                </a>
+
+                <a href="../index.html">
+                    Tienda
+                </a>
+
+            </nav>
+
+
+            <div class="nav-actions">
+
+                <a
+                    href="../index.html"
+                    class="btn btn-outline"
+                >
+                    Ver tienda
+                </a>
+
+            </div>
+
+
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                type="button"
+                aria-label="Abrir menú"
+                aria-expanded="false"
+            >
+                ☰
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- ==========================================
+         CONTENIDO
+    =========================================== -->
+
+    <main>
+
+        <section class="section">
+
+            <div class="container">
+
+
+                <!-- ENCABEZADO -->
+
+                <div class="panel">
+
+                    <span class="tag">
+                        CLIENTES
+                    </span>
+
+                    <h1>
+                        Clientes
+                    </h1>
+
+                    <p>
+                        Consulta y administra los clientes
+                        registrados en ElectroHogar.
+                    </p>
+
+                </div>
+
+
+                <!-- ==================================
+                     ESTADÍSTICAS
+                =================================== -->
+
+                <div class="dashboard-stats">
+
+                    <div class="dashboard-stat">
+
+                        <span>
+                            Clientes registrados
+                        </span>
+
+                        <strong id="totalClientes">
+                            48
+                        </strong>
+
+                    </div>
+
+
+                    <div class="dashboard-stat">
+
+                        <span>
+                            Clientes con crédito
+                        </span>
+
+                        <strong id="clientesCredito">
+                            23
+                        </strong>
+
+                    </div>
+
+
+                    <div class="dashboard-stat">
+
+                        <span>
+                            Nuevos este mes
+                        </span>
+
+                        <strong id="clientesNuevos">
+                            8
+                        </strong>
+
+                    </div>
+
+
+                    <div class="dashboard-stat">
+
+                        <span>
+                            Créditos vencidos
+                        </span>
+
+                        <strong id="clientesVencidos">
+                            3
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ==================================
+                     BUSCADOR
+                =================================== -->
+
+                <div class="panel">
+
+                    <div class="admin-filters">
+
+                        <div class="form-group">
+
+                            <label
+                                for="buscarCliente"
+                                class="form-label"
+                            >
+                                Buscar cliente
+                            </label>
+
+                            <input
+                                type="search"
+                                id="buscarCliente"
+                                class="form-control"
+                                placeholder="Nombre, cédula, teléfono o correo..."
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label
+                                for="filtroCliente"
+                                class="form-label"
+                            >
+                                Estado
+                            </label>
+
+                            <select
+                                id="filtroCliente"
+                                class="form-control"
+                            >
+
+                                <option value="">
+                                    Todos
+                                </option>
+
+                                <option value="activo">
+                                    Activo
+                                </option>
+
+                                <option value="credito">
+                                    Con crédito
+                                </option>
+
+                                <option value="vencido">
+                                    Crédito vencido
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ==================================
+                     TABLA DE CLIENTES
+                =================================== -->
+
+                <div class="panel">
+
+                    <div class="table-responsive">
+
+                        <table class="data-table">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>
+                                        Cliente
+                                    </th>
+
+                                    <th>
+                                        Documento
+                                    </th>
+
+                                    <th>
+                                        Teléfono
+                                    </th>
+
+                                    <th>
+                                        Correo
+                                    </th>
+
+                                    <th>
+                                        Créditos
+                                    </th>
+
+                                    <th>
+                                        Saldo
+                                    </th>
+
+                                    <th>
+                                        Estado
+                                    </th>
+
+                                    <th>
+                                        Acciones
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody id="clientesTable">
+
+                                <!-- JavaScript -->
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ==================================
+                     DETALLE DEL CLIENTE
+                =================================== -->
+
+                <div
+                    class="panel"
+                    id="detalleCliente"
+                    style="display: none;"
+                >
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <span class="tag">
+                                INFORMACIÓN DEL CLIENTE
+                            </span>
+
+                            <h2 id="detalleNombre">
+                                Cliente
+                            </h2>
+
+                            <p>
+                                Información y resumen de su cuenta.
+                            </p>
+
+                        </div>
+
+                        <button
+                            type="button"
+                            class="btn btn-outline"
+                            id="cerrarDetalle"
+                        >
+                            Cerrar
+                        </button>
+
+                    </div>
+
+
+                    <div class="account-info">
+
+                        <div class="account-info-item">
+
+                            <span>
+                                Nombre completo
+                            </span>
+
+                            <strong id="detalleNombreCompleto">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="account-info-item">
+
+                            <span>
+                                Documento
+                            </span>
+
+                            <strong id="detalleCedula">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="account-info-item">
+
+                            <span>
+                                Teléfono
+                            </span>
+
+                            <strong id="detalleTelefono">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="account-info-item">
+
+                            <span>
+                                Correo electrónico
+                            </span>
+
+                            <strong id="detalleEmail">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="account-info-item">
+
+                            <span>
+                                Dirección
+                            </span>
+
+                            <strong id="detalleDireccion">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="account-info-item">
+
+                            <span>
+                                Fecha de registro
+                            </span>
+
+                            <strong id="detalleFecha">
+                                —
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- RESUMEN -->
+
+                    <div class="dashboard-stats">
+
+                        <div class="dashboard-stat">
+
+                            <span>
+                                Créditos
+                            </span>
+
+                            <strong id="detalleCreditos">
+                                0
+                            </strong>
+
+                        </div>
+
+
+                        <div class="dashboard-stat">
+
+                            <span>
+                                Total financiado
+                            </span>
+
+                            <strong id="detalleFinanciado">
+                                $0
+                            </strong>
+
+                        </div>
+
+
+                        <div class="dashboard-stat">
+
+                            <span>
+                                Total pagado
+                            </span>
+
+                            <strong id="detallePagado">
+                                $0
+                            </strong>
+
+                        </div>
+
+
+                        <div class="dashboard-stat">
+
+                            <span>
+                                Saldo
+                            </span>
+
+                            <strong id="detalleSaldo">
+                                $0
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-actions">
+
+                        <button
+                            type="button"
+                            class="btn btn-primary"
+                            id="contactarCliente"
+                        >
+                            Contactar cliente
+                        </button>
+
+                        <button
+                            type="button"
+                            class="btn btn-outline"
+                            id="verCreditosCliente"
+                        >
+                            Ver créditos
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==========================================
+         FOOTER
+    =========================================== -->
+
+    <footer class="footer">
+
+        <div class="container">
+
+            <div class="footer-bottom">
+                © 2026 ElectroHogar · Administración
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ==========================================
+         JAVASCRIPT
+    =========================================== -->
+
+    <script src="../js/app.js"></script>
+
+    <script>
+
+        // ==========================================
+        // CLIENTES DE DEMOSTRACIÓN
+        // ==========================================
+
+        const clientes = [
+
+            {
+                id: 1,
+                nombre: "María González",
+                cedula: "V-12345678",
+                telefono: "0412-1234567",
+                email: "maria@ejemplo.com",
+                direccion: "Valle de la Pascua",
+                creditos: 1,
+                financiado: 700,
+                pagado: 350,
+                saldo: 350,
+                estado: "credito",
+                fecha: "10/09/2026"
+            },
+
+            {
+                id: 2,
+                nombre: "Carlos Rodríguez",
+                cedula: "V-23456789",
+                telefono: "0414-7654321",
+                email: "carlos@ejemplo.com",
+                direccion: "San Juan de los Morros",
+                creditos: 1,
+                financiado: 560,
+                pagado: 320,
+                saldo: 240,
+                estado: "activo",
+                fecha: "05/09/2026"
+            },
+
+            {
+                id: 3,
+                nombre: "Ana Pérez",
+                cedula: "V-34567890",
+                telefono: "0416-9876543",
+                email: "ana@ejemplo.com",
+                direccion: "Maracay",
+                creditos: 1,
+                financiado: 650,
+                pagado: 200,
+                saldo: 450,
+                estado: "credito",
+                fecha: "02/09/2026"
+            },
+
+            {
+                id: 4,
+                nombre: "José Martínez",
+                cedula: "V-45678901",
+                telefono: "0424-5555555",
+                email: "jose@ejemplo.com",
+                direccion: "Caracas",
+                creditos: 1,
+                financiado: 520,
+                pagado: 170,
+                saldo: 350,
+                estado: "vencido",
+                fecha: "28/08/2026"
+            }
+
+        ];
+
+
+        // ==========================================
+        // ELEMENTOS
+        // ==========================================
+
+        const tabla =
+            document.getElementById("clientesTable");
+
+        const buscar =
+            document.getElementById("buscarCliente");
+
+        const filtro =
+            document.getElementById("filtroCliente");
+
+        const detalle =
+            document.getElementById("detalleCliente");
+
+
+        // ==========================================
+        // FORMATEAR PRECIO
+        // ==========================================
+
+        function formatearPrecio(valor) {
+
+            return new Intl.NumberFormat("en-US", {
+                style: "currency",
+                currency: "USD"
+            }).format(valor);
+
+        }
+
+
+        // ==========================================
+        // MOSTRAR CLIENTES
+        // ==========================================
+
+        function mostrarClientes(lista = clientes) {
+
+            tabla.innerHTML = "";
+
+
+            if (!lista.length) {
+
+                tabla.innerHTML = `
+                    <tr>
+                        <td colspan="8">
+                            No se encontraron clientes.
+                        </td>
+                    </tr>
+                `;
+
+                return;
+            }
+
+
+            lista.forEach(cliente => {
+
+                let estadoTexto =
+                    "Activo";
+
+                let estadoClase =
+                    "success";
+
+
+                if (cliente.estado === "credito") {
+
+                    estadoTexto =
+                        "Con crédito";
+
+                    estadoClase =
+                        "warning";
+
+                }
+
+
+                if (cliente.estado === "vencido") {
+
+                    estadoTexto =
+                        "Vencido";
+
+                    estadoClase =
+                        "danger";
+
+                }
+
+
+                const fila =
+                    document.createElement("tr");
+
+
+                fila.innerHTML = `
+
+                    <td>
+                        <strong>
+                            ${cliente.nombre}
+                        </strong>
+                    </td>
+
+                    <td>
+                        ${cliente.cedula}
+                    </td>
+
+                    <td>
+                        ${cliente.telefono}
+                    </td>
+
+                    <td>
+                        ${cliente.email}
+                    </td>
+
+                    <td>
+                        ${cliente.creditos}
+                    </td>
+
+                    <td>
+                        ${formatearPrecio(cliente.saldo)}
+                    </td>
+
+                    <td>
+                        <span class="status ${estadoClase}">
+                            ${estadoTexto}
+                        </span>
+                    </td>
+
+                    <td>
+
+                        <button
+                            type="button"
+                            class="btn btn-small btn-outline"
+                            onclick="verCliente(${cliente.id})"
+                        >
+                            Ver
+                        </button>
+
+                    </td>
+
+                `;
+
+
+                tabla.appendChild(fila);
+
+            });
+
+        }
+
+
+        // ==========================================
+        // FILTROS
+        // ==========================================
+
+        function aplicarFiltros() {
+
+            const texto =
+                buscar.value
+                    .toLowerCase()
+                    .trim();
+
+            const estado =
+                filtro.value;
+
+
+            const resultado =
+                clientes.filter(cliente => {
+
+                    const coincideTexto =
+
+                        cliente.nombre
+                            .toLowerCase()
+                            .includes(texto)
+
+                        ||
+
+                        cliente.cedula
+                            .toLowerCase()
+                            .includes(texto)
+
+                        ||
+
+                        cliente.telefono
+                            .toLowerCase()
+                            .includes(texto)
+
+                        ||
+
+                        cliente.email
+                            .toLowerCase()
+                            .includes(texto);
+
+
+                    const coincideEstado =
+                        !estado ||
+                        cliente.estado === estado;
+
+
+                    return (
+                        coincideTexto &&
+                        coincideEstado
+                    );
+
+                });
+
+
+            mostrarClientes(resultado);
+
+        }
+
+
+        buscar.addEventListener(
+            "input",
+            aplicarFiltros
+        );
+
+
+        filtro.addEventListener(
+            "change",
+            aplicarFiltros
+        );
+
+
+        // ==========================================
+        // VER CLIENTE
+        // ==========================================
+
+        function verCliente(id) {
+
+            const cliente =
+                clientes.find(
+                    item => item.id === id
+                );
+
+
+            if (!cliente) {
+                return;
+            }
+
+
+            document
+                .getElementById("detalleNombre")
+                .textContent =
+                cliente.nombre;
+
+
+            document
+                .getElementById("detalleNombreCompleto")
+                .textContent =
+                cliente.nombre;
+
+
+            document
+                .getElementById("detalleCedula")
+                .textContent =
+                cliente.cedula;
+
+
+            document
+                .getElementById("detalleTelefono")
+                .textContent =
+                cliente.telefono;
+
+
+            document
+                .getElementById("detalleEmail")
+                .textContent =
+                cliente.email;
+
+
+            document
+                .getElementById("detalleDireccion")
+                .textContent =
+                cliente.direccion;
+
+
+            document
+                .getElementById("detalleFecha")
+                .textContent =
+                cliente.fecha;
+
+
+            document
+                .getElementById("detalleCreditos")
+                .textContent =
+                cliente.creditos;
+
+
+            document
+                .getElementById("detalleFinanciado")
+                .textContent =
+                formatearPrecio(
+                    cliente.financiado
+                );
+
+
+            document
+                .getElementById("detallePagado")
+                .textContent =
+                formatearPrecio(
+                    cliente.pagado
+                );
+
+
+            document
+                .getElementById("detalleSaldo")
+                .textContent =
+                formatearPrecio(
+                    cliente.saldo
+                );
+
+
+            detalle.style.display =
+                "block";
+
+
+            detalle.scrollIntoView({
+                behavior: "smooth"
+            });
+
+
+            document
+                .getElementById("contactarCliente")
+                .onclick = () => {
+
+                    const telefono =
+                        cliente.telefono
+                            .replace(/\D/g, "");
+
+                    window.open(
+                        `https://wa.me/${telefono}`,
+                        "_blank"
+                    );
+
+                };
+
+
+            document
+                .getElementById("verCreditosCliente")
+                .onclick = () => {
+
+                    window.location.href =
+                        `creditos.html?cliente=${cliente.id}`;
+
+                };
+
+        }
+
+
+        // ==========================================
+        // CERRAR DETALLE
+        // ==========================================
+
+        document
+            .getElementById("cerrarDetalle")
+            .addEventListener("click", () => {
+
+                detalle.style.display =
+                    "none";
+
+            });
+
+
+        // ==========================================
+        // INICIO
+        // ==========================================
+
+        mostrarClientes();
+
+    </script>
+
+</body>
+</html>
